@@ -14,6 +14,42 @@
     </head>
 
     <body>
+
+        <header>
+            <h1>Items in a box project</h1>
+        </header>
+
+        <div class="container">
+            <div class="item_size">
+                <h3>Item measures</h3>
+                <form>
+                    <label for="item_lenght">Longitud</label>
+                    <input type="text" id="item_lenght" name="item_lenght" placeholder="insert measures in cm"><br><br>
+                    <label for="item_height">Altura</label>
+                    <input type="text" id="item_height" name="item_height" placeholder="insert measures in cm"><br><br>
+                    <label for="item_depth">Profundidad</label>
+                    <input type="text" id="item_depth" name="item_depth" placeholder="insert measures in cm"><br><br>
+                </form>
+            </div>
+            <div class="box_size">
+                <h3>Box measures</h3>
+                <form>
+                    <label for="box_lenght">Longitud</label>
+                    <input type="text" id="box_lenght" name="box_lenght" placeholder="insert measures in cm"><br><br>
+                    <label for="box_height">Altura</label>
+                    <input type="text" id="box_height" name="box_height" placeholder="insert measures in cm"><br><br>
+                    <label for="box_depth">Profundidad</label>
+                    <input type="text" id="box_depth" name="box_depth" placeholder="insert measures in cm"><br><br>
+                </form>
+            </div>
+            <div class="option_buttons">
+                <button id="calculate" class="btn">Calculate!</button>
+                <button id="reset" class="btn">Reset values</button>
+            </div>
+            <div class="solution"></div>
+        </div>
+
+
         <script src="./js/lib/jquery-3.5.1.min.js"></script>
         <script src="./js/lib/materialize.min.js"></script>
         <script src="./js/projects.js"></script>
