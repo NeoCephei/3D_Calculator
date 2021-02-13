@@ -1,4 +1,4 @@
-var sizes = {
+let sizes = {
     itemMeasures: [0,0,0],
     itemVolume: 0,
 
@@ -13,7 +13,7 @@ $(() => {
         full_Operation();
     });
 
-    $("#reset").on('click', (ev) =>{
+    $("#reset").on('click', (ev) => {
         reset_Values();
     });
 });
@@ -55,31 +55,46 @@ function reset_Values(){
     $("#box_depth").val('') 
 }
 
-var canvas = document.createElement("canvas");
+
+//Crear una clase para cada canvas (Le paso el .get(0) para pasarle el js) y de ahí que dibuje.
+var canvas = $('#prueba').get(0);
 var ctx    = canvas.getContext('2d');
 
 canvas.width  = 800;
 canvas.height = 800;
 
-document.body.appendChild(canvas);
+var sizeX = 15;
+var sizeY = 4;
+var sizeZ = 23;
+// ctx.scale(5, 5);
 
-function draw() {
+function draw(x,y,z) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     // var sizeX = sizes.itemMeasures[0];
     // var sizeY = sizes.itemMeasures[1];
     // var sizeZ = sizes.itemMeasures[2]; 
 
-    var sizeX = 15;
-    var sizeY = 4;
-    var sizeZ = 23; 
+    // var sizeX = 15;
+    // var sizeY = 4;
+    // var sizeZ = 23; 
+    console.log(x,y,z);
     
-    ctx.scale(5, 5);
     
-    drawCube(50, 50, sizeX, sizeY, sizeZ);
+    
+    drawCube(250, 250, x, y,z);
 }
 
-requestAnimationFrame(draw);
+setInterval(()=>{
+    sizeX++;
+    sizeY++;
+    sizeZ++;
+
+    console.log('>>>>>','hola');
+    
+    draw(sizeX,sizeY,sizeZ);
+
+},100);
 
 
 function drawCube(x, y, wx, wy, h, color) {
