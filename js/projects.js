@@ -20,7 +20,7 @@ $(() => {
 
 function full_Operation(){
     if (check_Values()){
-        console.log(sizes.itemMeasures);
+        drawSamples();
     } else {
         alert('Invalid input');
         reset_Values();
@@ -55,49 +55,35 @@ function reset_Values(){
     $("#box_depth").val('') 
 }
 
+function drawSamples(){
+    //Crear una clase para cada canvas (Le paso el .get(0) para pasarle el js) y de ahí que dibuje.
 
-//Crear una clase para cada canvas (Le paso el .get(0) para pasarle el js) y de ahí que dibuje.
-var canvas = $('#prueba').get(0);
-var ctx    = canvas.getContext('2d');
+    let item_Canvas = $("#item_canvas").get(0);
+    let item_ctx = item_Canvas.getContext("2d");
+    let box_Canvas = $("#box_canvas").get(0);
+    let box_ctx = box_Canvas.getContext("2d");
 
-canvas.width  = 800;
-canvas.height = 800;
+    item_Canvas.width = 400;
+    item_Canvas.height = 400;
+    box_Canvas.width = 400;
+    box_Canvas.height = 400;
 
-var sizeX = 15;
-var sizeY = 4;
-var sizeZ = 23;
-// ctx.scale(5, 5);
+    let itemX = sizes.itemMeasures[0];
+    let itemY = sizes.itemMeasures[1];
+    let itemZ = sizes.itemMeasures[2];
 
-function draw(x,y,z) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // var sizeX = sizes.itemMeasures[0];
-    // var sizeY = sizes.itemMeasures[1];
-    // var sizeZ = sizes.itemMeasures[2]; 
+    let boxX = sizes.boxMeasures[0];
+    let boxY = sizes.boxMeasures[1];
+    let boxZ = sizes.boxMeasures[2];
 
-    // var sizeX = 15;
-    // var sizeY = 4;
-    // var sizeZ = 23; 
-    console.log(x,y,z);
-    
-    
-    
-    drawCube(250, 250, x, y,z);
+    item_ctx.clearRect(0, 0, item_Canvas.width, item_Canvas.height);
+    box_ctx.clearRect(0, 0, box_Canvas.width, box_Canvas.height);
+
+    drawCube(item_Canvas.width/2, item_Canvas.height, itemX, itemY,itemZ, item_ctx);
+    drawCube(box_Canvas.width/2, box_Canvas.height, boxX, boxY,boxZ, box_ctx);
 }
 
-setInterval(()=>{
-    sizeX++;
-    sizeY++;
-    sizeZ++;
-
-    console.log('>>>>>','hola');
-    
-    draw(sizeX,sizeY,sizeZ);
-
-},100);
-
-
-function drawCube(x, y, wx, wy, h, color) {
+function drawCube(x, y, wx, wy, h, ctx) {
 
     // LINE MODE
     ctx.lineJoin = "round";
