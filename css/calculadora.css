@@ -1,0 +1,67 @@
+*{
+    font-family: sans-serif;
+}
+html,body{
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.item_measures{
+	display:flex;
+	flex-direction: row;
+}
+
+.box_measures{
+	display: flex;
+	flex-direction: row;
+}
+.solution{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-gap: 10px;
+	padding-top: 10px;
+}
+
+p{
+	text-align: center;
+}
+
+.generalAnswer{
+	grid-column: 1/4;
+	grid-row: 1;
+}
+.answer{
+	border: 2px solid #000000;
+	border-radius: 20px;
+}
+.one{
+	grid-column: 1;
+	grid-row: 2;
+}
+.two{
+	grid-column: 2;
+	grid-row: 2;
+}
+.three{
+	grid-column: 3;
+	grid-row: 2;
+}
+.four{
+	grid-column: 1;
+	grid-row: 3;
+}
+.five{
+	grid-column: 2;
+	grid-row: 3;
+}
+.six{
+	grid-column: 3;
+	grid-row: 3;
+}
+
+.ninja{
+	display: none;
+}
