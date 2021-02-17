@@ -86,10 +86,7 @@ calculateCapacities = (arr) => {
 		});
 		nItems = accArr.reduce( (a, b) => a * b );
 
-		$('#p'+ doConvert(i+1)).text("Con esta orientacion caben: " + nItems + " items.");
-
-		// drawCanvasCube(doConvert(i+1),arr[i][0],arr[i][1],arr[i][2]);
-		//Tengo que  dibujar un cubo con el array[i] en el canvas correspondiente que es el #doConvert(i+1) los valores son arr[i][0], arr[i][1], arr[i][2]
+		$('#p'+ doConvert(i+1)).text("Con esta orientación caben: " + nItems + " items.");
 
 		accArr = [];
 	}
@@ -170,7 +167,7 @@ writeVolumes = () => {
 
 	$("#pitem_volume").text("El volumen del item es de: " + sizes.itemVolume + " cm3.");
 	$("#pbox_volume").text("El volumen del box es de: " + sizes.boxVolume + " cm3.");
-	$("#pGeneralAnswer").text("El numero maximo de items colocables es de: " + Math.floor(maxBoxes) + ".");
+	$("#pGeneralAnswer").text("El número máximo de items colocables es de: " + Math.floor(maxBoxes) + ".");
 
 }
 
