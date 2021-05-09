@@ -25,7 +25,7 @@ $(() => {
 
 			pintaCubos();
 		} else {
-			alert("Todos los valores deben ser un numero positivo");
+			alert("Todos los valores deben ser un número positivo");
 			clearInputs();
 		}
 	});
@@ -33,7 +33,52 @@ $(() => {
 	$("#clear-btn").on("click", (ev) => {
 		clearInputs();
 	})
+
+	$("#cajonPequeño").on("click", (ev) => {
+		presetLittle();
+	})
+	$("#cajonMediano").on("click", (ev) => {
+		presetMedium();
+	})
+	$("#cajonGrande").on("click", (ev) => {
+		presetBig();
+	})
+	$("#cajonSupergrande").on("click", (ev) => {
+		presetSuperbig();
+	})
 });
+
+
+clearBoxinput = () => {
+	$("#box_alto").val('');
+	$("#box_ancho").val('');
+	$("#box_profundidad").val('');
+}
+presetLittle = () => {
+	clearBoxinput();
+	$("#box_alto").val(56);
+	$("#box_ancho").val(8);
+	$("#box_profundidad").val(7);
+}
+presetMedium = () => {
+	clearBoxinput();
+	$("#box_alto").val(56);
+	$("#box_ancho").val(19);
+	$("#box_profundidad").val(14);
+}
+presetBig = () => {
+	clearBoxinput();
+	$("#box_alto").val(42);
+	$("#box_ancho").val(28);
+	$("#box_profundidad").val(19);
+}
+presetSuperbig = () => {
+	clearBoxinput();
+	$("#box_alto").val(42);
+	$("#box_ancho").val(28);
+	$("#box_profundidad").val(29);
+}
+
 
 pintaCubos = () => {
 	drawCanvasCube('item_canvas',sizes.item[0],sizes.item[1],sizes.item[2]);
@@ -87,6 +132,9 @@ calculateCapacities = (arr) => {
 		nItems = accArr.reduce( (a, b) => a * b );
 
 		$('#p'+ doConvert(i+1)).text("Con esta orientación caben: " + nItems + " items.");
+
+		// drawCanvasCube(doConvert(i+1),arr[i][0],arr[i][1],arr[i][2]);
+		//Tengo que  dibujar un cubo con el array[i] en el canvas correspondiente que es el #doConvert(i+1) los valores son arr[i][0], arr[i][1], arr[i][2]
 
 		accArr = [];
 	}
