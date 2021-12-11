@@ -1,7 +1,5 @@
 # Container Capacity Calculator
 
----
-
 ## Description 
 This is a personal project I created while working on logistics for a company where I had to reorganize the warehouse.
 So in order to maximize the container usages I created this basic calculator that tells you how many items can you fit into a container.
